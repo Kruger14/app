@@ -15,7 +15,7 @@ const Signup = () => {
             </View>
 
             <View style={styles.signup}>
-                <Text style={styles.heading}>Hi! Looking for Rental house</Text>
+                <Text style={styles.heading}>Looking for Rental house</Text>
                 <Text style={styles.subheading}>Create a new account, find your home</Text>
 
                 <View style={styles.formcontainer}>

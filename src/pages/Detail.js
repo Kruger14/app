@@ -2,7 +2,6 @@ import React from 'react';
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import ArrowBack from '../assets/svg/ArroBack';
-import Close from '../assets/svg/Close';
 import Person from '../assets/svg/Person';
 import Homepin from '../assets/svg/Homepin';
 import Currency from '../assets/svg/Currency';
@@ -10,8 +9,6 @@ import Bed from '../assets/svg/Bed';
 import Bathroom from '../assets/svg/Bathroom';
 import Localparking from '../assets/svg/Localparking';
 import Balcony from '../assets/svg/balcony';
-import Sms from '../assets/svg/Sms';
-import Whatsapp from '../assets/svg/Whatsapp';
 import { useNavigation } from '@react-navigation/native';
 
 const Detail = () => {
@@ -28,33 +25,61 @@ const Detail = () => {
                     </View>
                 </TouchableOpacity>
 
+                <View>
+                    <Text style={{ fontSize: 12, }}>Details</Text>
+                </View>
+
                 <TouchableOpacity>
                     <View>
-                        {/* <Image source={require('../assets/close.png')} /> */}
-                        <Close height={25} width={25} />
                     </View>
                 </TouchableOpacity>
             </View>
             {/* appbar end*/}
 
+            {/* carousel */}
+            <ScrollView style={{ marginTop: 20, }} horizontal={true} showsHorizontalScrollIndicator={false}>
+                <View style={styles.item}>
+                    <Image
+                        source={require('../assets/new.jpg')}
+                        style={styles.image}
+                    />
+                </View>
 
-            <View style={styles.imgcont}>
-                <Image style={styles.img} source={require('../assets/new.jpg')} />
-            </View>
+                <View style={styles.item}>
+                    <Image
+                        source={require('../assets/new.jpg')}
+                        style={styles.image}
+                    />
+                </View>
+            </ScrollView>
+            {/* carousel */}
 
 
+            <ScrollView style={{
+                backgroundColor: 'white', borderTopLeftRadius: 15,
+                borderTopRightRadius: 15,
+            }} showsVerticalScrollIndicator={false}>
 
-            <ScrollView showsVerticalScrollIndicator={false}>
+                {/* headerstart */}
+                <View style={{
+                    marginTop: 10,
+                    height: 40, flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}>
+                    <Text style={{ fontSize: 14, }}>1 bhk excellent apartment for rent</Text>
+                </View>
+                {/* headerstart */}
 
                 <View style={styles.desccont}>
-                    <Text>Description:</Text>
+                    <Text style={{ fontSize: 18, fontWeight: '900', }}>Description:</Text>
                     <Text>The error you're encountering, "Invariant Violation: requireNativeComponent: 'RNCAndroidDialogPicker'
                         was not found in the UIManager", suggests that there might be an issue with the installation or linking
                         of the @react-native-picker/picker package, especially if you're working on an Android platform.</Text>
                 </View>
 
-                <Text style={styles.specheader}>Owner info</Text>
                 {/* ownerinfobox start */}
+                <Text style={styles.specheader}>Owner info</Text>
                 <View style={styles.ownerinfobox}>
 
                     <View style={styles.infoItem}>
@@ -68,13 +93,6 @@ const Detail = () => {
                         {/* <Image style={styles.infoIcon} source={require('../assets/pin.png')} /> */}
                         <Text style={styles.infoText}>hyderabad</Text>
                     </View>
-
-                    <View style={styles.infoItem}>
-                        {/* <Image style={styles.infoIcon} source={require('../assets/currency.png')} /> */}
-                        <Currency height={25} width={25} />
-                        <Text style={styles.infoText}>hyderabad</Text>
-                    </View>
-
                 </View>
 
                 {/* specificationstart */}
@@ -83,42 +101,40 @@ const Detail = () => {
                     <View style={styles.specItem}>
                         {/* <Image style={styles.specIcon} source={require('../assets/bed.png')} /> */}
                         <Bed height={25} width={25} />
-                        <Text style={styles.specText}>5</Text>
+                        <Text style={styles.specText}>2</Text>
                     </View>
                     <View style={styles.specItem}>
                         <Bathroom height={25} width={25} />
                         {/* <Image style={styles.specIcon} source={require('../assets/bathroom.png')} /> */}
-                        <Text style={styles.specText}>5</Text>
+                        <Text style={styles.specText}>3</Text>
                     </View>
                     <View style={styles.specItem}>
                         <Localparking height={25} width={25} />
                         {/* <Image style={styles.specIcon} source={require('../assets/local_parking.png')} /> */}
-                        <Text style={styles.specText}>5</Text>
+                        <Text style={styles.specText}>Yes</Text>
                     </View>
                     <View style={styles.specItem}>
                         <Balcony height={25} width={25} />
                         {/* <Image style={styles.specIcon} source={require('../assets/balcony.png')} /> */}
-                        <Text style={styles.specText}>5</Text>
+                        <Text style={styles.specText}>1</Text>
                     </View>
                 </View>
-                {/* specification ends */}
-
 
 
                 <View style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-around', alignItems: 'center',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginTop: 15,
                 }}>
-                    <TouchableOpacity>
-                        <Sms height={25} width={25} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity>
-                        <Whatsapp />
-                    </TouchableOpacity>
+                    <View style={{
+                        height: 40, width: 150, backgroundColor: 'red',
+                        borderRadius: 21, justifyContent: 'center', alignItems: 'center',
+                    }}>
+                        <TouchableOpacity>
+                            <Text style={styles.btnstyle}>Get Details</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-
-
             </ScrollView>
         </SafeAreaProvider >
     );
@@ -127,15 +143,41 @@ const Detail = () => {
 
 const styles = StyleSheet.create({
 
+    //get btn
+    btn: {
+        height: 40, width: 150,
+        backgroundColor: 'red',
+        borderRadius: 21, justifyContent: 'center', alignItems: 'center',
+    },
+
+
+    btnstyle: {
+        color: 'white',
+        fontSize: 15,
+    },
+    //get btn
+
+    // carousel starts here
+    item: {
+        width: Dimensions.get('screen').width, // Set width according to your item's size
+        height: 300, // Set height according to your item's size
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+        objectFit: 'scale-down',
+        borderRadius: 5,
+    },
+    // carousel ends here
+
     appbar: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: 20,
-        marginEnd: 15,
         marginStart: 15,
-        height: 40,
+        marginTop: 10,
+
     },
 
     imgcont: {
@@ -164,7 +206,9 @@ const styles = StyleSheet.create({
     },
 
     ownerinfobox: {
-        marginVertical: 5,
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
     },
 
     infoItem: {

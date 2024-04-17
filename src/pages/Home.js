@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
 
     // card starts
     cardContainer: {
+        elevation: 1,
         marginBottom: 10,
         flexDirection: 'row',
         borderColor: 'black',
