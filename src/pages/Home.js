@@ -8,6 +8,7 @@ import Currency from '../assets/svg/Currency';
 import Homepin from '../assets/svg/Homepin';
 import ArrowForward from '../assets/svg/ArrowForward';
 import { useNavigation } from '@react-navigation/native';
+import Favorite from '../assets/svg/Favorite';
 
 const Home = () => {
 
@@ -47,23 +48,27 @@ const Home = () => {
         )
     }
 
-    const data = ['villa', 'community', 'apartment', 'apartment', 'apartment', 'apartment']
+    // const data = ['villa', 'community', 'apartment', 'apartment', 'apartment', 'apartment']
     return (
         <SafeAreaProvider>
             <View style={styles.home}>
                 <View style={styles.menubtn}>
-                    <TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => Navigation.navigate('profile')}>
                         <Menu height={25} width={25} />
                     </TouchableOpacity>
 
-                    <View style={{ alignItems: 'center' }}>
+                    <View>
                         <Text style={styles.greet}>Hello, John</Text>
                         <Text style={styles.subheading}>Discover</Text>
                     </View>
 
-                    <View>
-                        <Person height={25} width={25} />
-                    </View>
+                    <TouchableOpacity>
+                        <View>
+                            <Favorite height={25} width={25} />
+                        </View>
+                    </TouchableOpacity>
+
 
                 </View>
 

@@ -10,6 +10,7 @@ import Bathroom from '../assets/svg/Bathroom';
 import Localparking from '../assets/svg/Localparking';
 import Balcony from '../assets/svg/balcony';
 import { useNavigation } from '@react-navigation/native';
+import Favorite from '../assets/svg/Favorite';
 
 const Detail = () => {
     const navigation = useNavigation();
@@ -31,6 +32,7 @@ const Detail = () => {
 
                 <TouchableOpacity>
                     <View>
+                        <Favorite height={25} width={25} />
                     </View>
                 </TouchableOpacity>
             </View>
