@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,25 +8,24 @@ const Onboarding = () => {
     const navigation = useNavigation();
     return (
         <SafeAreaProvider>
-            <View style={styles.mainvu}>
-                <View style={styles.imgvu}>
-                    <Image style={styles.img} source={require('../assets/searchhome.png')} />
-                </View>
 
-                <View style={styles.subvu}>
-                    <Text style={styles.headtext}>Find to a rent House</Text>
-                    <Text style={styles.line}></Text>
-                    <Text style={styles.subtext}>Rent a house at affordable price range </Text>
-                    <Text style={styles.subtext}>from your phone with Rentit</Text>
-                </View>
+            <View style={{}}>
+                <Image style={styles.img} source={require('../assets/homeon.jpg')} />
+            </View>
+
+            <View style={{ flex: 1, alignItems: 'flex-start' }}>
+
+                <Text style={styles.header}>Find your Home</Text>
+                <Text style={styles.subtext}>Rent a house at affordable price range,</Text>
+                <Text style={styles.subtext}>from your phone with Rentit</Text>
 
 
                 <TouchableOpacity onPress={() => navigation.navigate('login')}>
                     <View style={styles.button}>
                         <Text style={styles.buttonText}>Get started</Text>
+
                     </View>
                 </TouchableOpacity>
-
             </View>
         </SafeAreaProvider >
     )
@@ -37,67 +36,27 @@ const styles = StyleSheet.create({
 
     mainvu: {
         flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'black',
-    },
-    imgvu: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 80,
-        borderRadius: 111110,
     },
 
-    img: {
-        objectFit: 'cover',
-        borderRadius: 100,
-        height: 400,
-        width: Dimensions.get('screen').width,
-        // borderWidth: 1,
-        // borderColor: 'black',
-    },
-
-    subvu: {
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 15,
-    },
-
-    headtext: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: 'white',
-    },
-
-    subtext: {
-        fontSize: 15,
-        fontWeight: '500',
-        color: 'white',
-    },
-
-    line: {
-        height: 2,
-        width: 40,
-        backgroundColor: 'black',
-        marginTop: 15,
-        marginBottom: 15,
-    },
-
+    img: { height: 400, objectFit: 'cover', borderBottomLeftRadius: 50, },
+    header: { marginStart: 12, fontSize: 30, marginTop: 50, fontWeight: '700' },
+    subtext: { marginStart: 12, fontSize: 16, marginTop: 5, fontWeight: '200' },
     button: {
         marginTop: 50,
+        marginStart: 12,
         backgroundColor: 'blue',
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,
+        width: Dimensions.get('screen').width - 24,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
+
     buttonText: {
-        color: 'black',
+        color: 'white',
         fontSize: 16,
         fontWeight: 'bold',
     },
