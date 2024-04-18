@@ -4,7 +4,6 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import ArrowBack from '../assets/svg/ArroBack';
 import Person from '../assets/svg/Person';
 import Homepin from '../assets/svg/Homepin';
-import Currency from '../assets/svg/Currency';
 import Bed from '../assets/svg/Bed';
 import Bathroom from '../assets/svg/Bathroom';
 import Localparking from '../assets/svg/Localparking';
@@ -20,18 +19,19 @@ const Detail = () => {
         <SafeAreaProvider>
             {/* appbar */}
             <View style={styles.appbar}>
+
                 <TouchableOpacity onPress={() => navigation.navigate('home')}>
-                    <View>
+                    <View style={{ marginStart: 12 }}>
                         <ArrowBack height={25} width={25} />
                     </View>
                 </TouchableOpacity>
 
                 <View>
-                    <Text style={{ fontSize: 12, }}>Details</Text>
+                    <Text style={{ fontSize: 20, }}>Details</Text>
                 </View>
 
                 <TouchableOpacity>
-                    <View>
+                    <View style={{ marginEnd: 12, }}>
                         <Favorite height={25} width={25} />
                     </View>
                 </TouchableOpacity>
@@ -164,6 +164,7 @@ const styles = StyleSheet.create({
         width: Dimensions.get('screen').width, // Set width according to your item's size
         height: 300, // Set height according to your item's size
     },
+
     image: {
         width: '100%',
         height: '100%',
@@ -173,13 +174,13 @@ const styles = StyleSheet.create({
     // carousel ends here
 
     appbar: {
+        elevation: 4,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginStart: 15,
-        marginTop: 10,
-
+        backgroundColor: 'white',
+        height: 50,
     },
 
     imgcont: {

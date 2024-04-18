@@ -2,10 +2,26 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ArrowForward from '../assets/svg/ArrowForward';
+import ArrowBack from '../assets/svg/ArroBack';
+import { useNavigation } from '@react-navigation/native';
 
 const Profile = () => {
+
+    const Navigation = useNavigation();
+
     return (
         <SafeAreaProvider>
+            <View style={{
+                elevation: 4, backgroundColor: 'white',
+                height: 50, justifyContent: 'center', alignItems: 'flex-start'
+            }}>
+                <TouchableOpacity onPress={() => Navigation.navigate('home')}>
+                    <View style={{ marginStart: 12, }}>
+                        <ArrowBack height={25} width={25} />
+                    </View>
+                </TouchableOpacity>
+            </View>
+
             <View style={styles.container}>
                 <View style={styles.profileContainer}>
                     <Image style={styles.profileImage} source={require('../assets/dharshini.jpg')} />

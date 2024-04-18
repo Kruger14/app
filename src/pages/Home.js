@@ -3,10 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View, ScrollView, TextInput, Image,
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Search from '../assets/svg/Search';
 import Menu from '../assets/svg/Menu';
-import Person from '../assets/svg/Person';
-import Currency from '../assets/svg/Currency';
-import Homepin from '../assets/svg/Homepin';
-import ArrowForward from '../assets/svg/ArrowForward';
+import CardComponent from './CardComponent';
 import { useNavigation } from '@react-navigation/native';
 import Favorite from '../assets/svg/Favorite';
 
@@ -14,46 +11,13 @@ const Home = () => {
 
     const Navigation = useNavigation();
 
-    const Card = () => {
-        return (
-            <View style={styles.cardContainer}>
-
-                <View style={styles.imageContainer}>
-                    <Image source={require('../assets/new.jpg')} style={styles.image} />
-                </View>
-
-                <View style={styles.info}>
-
-                    <View style={styles.row}>
-                        <Person height={25} width={25} />
-                        <Text style={styles.name}>John</Text>
-                    </View>
-
-                    <View style={styles.row}>
-                        <Currency height={25} width={25} />
-                        <Text style={styles.text}>5000</Text>
-                    </View>
-                    <View style={styles.addressContainer}>
-                        <Homepin height={25} width={25} />
-                        <Text style={styles.address}>St 25, malibu point california lothkunta alwal 50025</Text>
-                    </View>
-
-                    <TouchableOpacity onPress={() => Navigation.navigate('detail')}>
-                        <View style={styles.button}>
-                            <ArrowForward height={25} width={25} />
-                        </View>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        )
-    }
 
     // const data = ['villa', 'community', 'apartment', 'apartment', 'apartment', 'apartment']
     return (
         <SafeAreaProvider>
             <View style={styles.home}>
-                <View style={styles.menubtn}>
 
+                <View style={styles.appbar}>
                     <TouchableOpacity onPress={() => Navigation.navigate('profile')}>
                         <Menu height={25} width={25} />
                     </TouchableOpacity>
@@ -63,7 +27,7 @@ const Home = () => {
                         <Text style={styles.subheading}>Discover</Text>
                     </View>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => Navigation.navigate('like')}>
                         <View>
                             <Favorite height={25} width={25} />
                         </View>
@@ -100,11 +64,10 @@ const Home = () => {
 
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={{ marginTop: 15, alignItems: 'center', }}>
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
+                        <CardComponent />
+                        <CardComponent />
+                        <CardComponent />
+                        <CardComponent />
                     </View>
                 </ScrollView>
 
@@ -186,7 +149,7 @@ const styles = StyleSheet.create({
         marginRight: 12,
     },
 
-    menubtn: {
+    appbar: {
         height: 'auto',
         display: 'flex',
         flexDirection: 'row',
