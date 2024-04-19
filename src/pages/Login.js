@@ -18,7 +18,6 @@ const Login = () => {
     }
 
 
-
     return (
         <SafeAreaProvider>
             <View style={styles.up}>
