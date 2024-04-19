@@ -1,11 +1,22 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Image } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Signup = () => {
-
+    const [name, setname] = useState("");
+    const [mailid, semailid] = useState("");
+    const [password, setpassword] = useState("");
+    const [rtypass, setrtypass] = useState("");
     const Navigation = useNavigation();
+
+    console.log(name, mailid)
+
+    const handlename = (input) => { setname(input) };
+    const handlemail = (input) => { semailid(input) };
+    const handlepass = (input) => { setpassword(input) };
+    const handlertypass = (input) => { setrtypass(input) };
+
     return (
         <SafeAreaProvider>
             <View>
@@ -19,10 +30,10 @@ const Signup = () => {
                 <Text style={styles.subheading}>Create a new account, find your home</Text>
 
                 <View style={styles.formcontainer}>
-                    <TextInput style={styles.input} placeholder='Enter name' />
-                    <TextInput style={styles.input} placeholder='Enter mailid' />
-                    <TextInput style={styles.input} placeholder='Enter password' />
-                    <TextInput style={styles.input} placeholder='Enter retype password' />
+                    <TextInput style={styles.input} placeholder='Enter name' onChangeText={handlename} />
+                    <TextInput style={styles.input} placeholder='Enter mailid' onChangeText={handlemail} />
+                    <TextInput style={styles.input} placeholder='Enter password' onChangeText={handlepass} />
+                    <TextInput style={styles.input} placeholder='Enter retype password' onChangeText={handlertypass} />
                 </View>
 
                 <View style={styles.btncontainer}>
