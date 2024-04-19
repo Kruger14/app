@@ -16,7 +16,6 @@ const Home = () => {
     return (
         <SafeAreaProvider>
             <View style={styles.home}>
-
                 <View style={styles.appbar}>
                     <TouchableOpacity onPress={() => Navigation.navigate('profile')}>
                         <Menu height={25} width={25} />
@@ -145,17 +144,19 @@ const styles = StyleSheet.create({
 
     home: {
         flex: 1,
-        marginLeft: 12,
-        marginRight: 12,
+        backgroundColor: 'white',
     },
 
     appbar: {
+        elevation: 5,
         height: 'auto',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-end',
         marginTop: 12,
+        paddingStart: 12,
+        paddingEnd: 12,
     },
 
     greet: {

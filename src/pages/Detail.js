@@ -16,7 +16,7 @@ const Detail = () => {
 
 
     return (
-        <SafeAreaProvider>
+        <SafeAreaProvider style={{ backgroundColor: 'white' }}>
             {/* appbar */}
             <View style={styles.appbar}>
 

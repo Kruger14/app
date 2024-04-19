@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
 
 
     cardContainer: {
+        backgroundColor: 'white',
         elevation: 1,
         marginBottom: 10,
         flexDirection: 'row',

@@ -60,8 +60,9 @@ const Profile = () => {
 };
 
 const styles = StyleSheet.create({
+
     container: {
-        height: 180,
+        height: 100,
         backgroundColor: 'blue',
         justifyContent: 'flex-end',
         alignItems: 'center',
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
         color: 'black',
     },
     menuContainer: {
-        marginTop: 100,
+        marginTop: 80,
     },
     menuItem: {
         flexDirection: 'row',

@@ -1,11 +1,24 @@
 import { useNavigation } from '@react-navigation/native'
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { View, StyleSheet, TouchableOpacity, TextInput, Dimensions, Text, Image } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 
 const Login = () => {
+    const [mailtext, setmailtext] = useState("");
+    const [password, setpassword] = useState("");
     const Navigation = useNavigation();
+
+    const handlemailChange = (textInput) => {
+        setmailtext(textInput);
+    }
+
+    const handlepassChange = (textInput) => {
+        setpassword(textInput);
+    }
+
+
+
     return (
         <SafeAreaProvider>
             <View style={styles.up}>
@@ -15,11 +28,17 @@ const Login = () => {
             <View style={styles.login}>
                 <Text style={styles.heading}>Welcome!</Text>
                 <Text style={styles.subheading}>Signin to continue</Text>
+
                 <View style={styles.inpbox}>
+
                     <TextInput style={styles.input}
+                        onChangeText={handlemailChange}
                         placeholder='Enter registered mail' />
-                    <TextInput style={styles.input} keyboardType='email-address'
+
+                    <TextInput style={styles.input}
+                        onChangeText={handlepassChange}
                         placeholder='Enter password' />
+
                 </View>
 
                 <View style={styles.btncontainer}>
