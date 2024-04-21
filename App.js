@@ -8,6 +8,7 @@ import Login from './src/pages/Login';
 import Signup from './src/pages/Signup';
 import Profile from './src/pages/Profile';
 import Liked from './src/pages/Liked';
+import Post from './src/pages/Post';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
         <Stack.Screen name='detail' component={Detail} options={{ headerShown: false }} />
         <Stack.Screen name='profile' component={Profile} options={{ headerShown: false }} />
         <Stack.Screen name='like' component={Liked} options={{ headerShown: false }} />
+        <Stack.Screen name='post' component={Post} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   )

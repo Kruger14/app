@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView, TextInput, Image, Dimensions } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Search from '../assets/svg/Search';
@@ -9,10 +9,17 @@ import Favorite from '../assets/svg/Favorite';
 
 const Home = () => {
 
+    const [search, setsearch] = useState("");
     const Navigation = useNavigation();
 
+    const handlesearch = (input) => {
+        setsearch(input);
+    }
 
-    // const data = ['villa', 'community', 'apartment', 'apartment', 'apartment', 'apartment']
+
+
+    const data = ['villa', 'community', 'apartment', 'apartment', 'apartment', 'apartment']
+
     return (
         <SafeAreaProvider>
             <View style={styles.home}>
@@ -31,22 +38,21 @@ const Home = () => {
                             <Favorite height={25} width={25} />
                         </View>
                     </TouchableOpacity>
-
-
                 </View>
 
                 <View style={styles.searchbarcontainer}>
                     <TextInput
                         placeholder="Search"
                         style={{ flex: 1, }}
+                        onChangeText={handlesearch}
                     />
-                    <TouchableOpacity style={styles.searchicon}>
+                    <TouchableOpacity onPress={() => (handlesearch)} style={styles.searchicon}>
                         <Search height={25} width={25} />
                     </TouchableOpacity>
                 </View>
 
-
-                {/* <ScrollView horizontal={true} style={{ height: 100 }}>
+                {/* 
+                <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ height: 100 }}>
                     <View style={{ flexDirection: 'row', marginTop: 15, alignItems: 'center' }}>
                         {data.map((item, index) => (
                             <View style={{
@@ -63,8 +69,6 @@ const Home = () => {
 
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={{ marginTop: 15, alignItems: 'center', }}>
-                        <CardComponent />
-                        <CardComponent />
                         <CardComponent />
                         <CardComponent />
                     </View>
@@ -193,8 +197,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 0.8,
-        marginEnd: 5,
-        marginStart: 5,
+        marginEnd: 12,
+        marginStart: 12,
     },
 
     searchicon: {

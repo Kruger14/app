@@ -37,9 +37,13 @@ const CardComponent = () => {
                     <Text style={styles.price}>5000</Text>
                 </View>
                 <View style={styles.footerRight}>
-                    <View>
-                        <Favorite height={25} width={25} />
-                    </View>
+
+                    <TouchableOpacity>
+                        <View>
+                            <Favorite height={25} width={25} />
+                        </View>
+                    </TouchableOpacity>
+
                     <TouchableOpacity onPress={() => Navigation.navigate('detail')}>
                         <ArrowForward height={25} width={25} />
                     </TouchableOpacity>
@@ -57,6 +61,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         borderTopRightRadius: 16,
         borderTopLeftRadius: 16,
+        marginTop: 10,
     },
     image: {
         height: 200,
@@ -97,6 +102,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderBottomLeftRadius: 16,
         borderBottomRightRadius: 16,
+        backgroundColor: 'lightgrey',
     },
     footerLeft: {
         flexDirection: 'row',
@@ -109,6 +115,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: 100,
         justifyContent: 'space-between',
+
     },
 });
 

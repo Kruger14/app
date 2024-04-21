@@ -30,8 +30,8 @@ const Profile = () => {
             </View>
 
             <View style={styles.menuContainer}>
-                <TouchableOpacity style={styles.menuItem}>
-                    <Text>Create a post</Text>
+                <TouchableOpacity onPress={() => Navigation.navigate('post')} style={styles.menuItem}>
+                    <Text>Post a Property</Text>
                     <ArrowForward height={25} width={25} />
                 </TouchableOpacity>
 
