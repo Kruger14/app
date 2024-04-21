@@ -1,46 +1,47 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { View, Image, Text, TouchableOpacity, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Person from '../assets/svg/Person';
 import Currency from '../assets/svg/Currency';
 import Homepin from '../assets/svg/Homepin';
 import ArrowForward from '../assets/svg/ArrowForward';
 import { useNavigation } from '@react-navigation/native';
-
-
-
+import Favorite from '../assets/svg/Favorite';
 
 const CardComponent = () => {
     const Navigation = useNavigation();
     return (
         <SafeAreaProvider>
+            <View style={styles.container}>
+                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                    <Image style={styles.image} source={require('../assets/new.jpg')} />
+                    <Image style={styles.image} source={require('../assets/new.jpg')} />
+                </ScrollView>
+            </View>
 
-            <View style={styles.cardContainer}>
-
-                <View style={styles.imageContainer}>
-                    <Image source={require('../assets/new.jpg')} style={styles.image} />
+            <View style={styles.detailsContainer}>
+                <Text style={styles.title}>1 bhk flat for rent in venkatapuram</Text>
+                <View style={styles.detailRow}>
+                    <Person height={25} width={25} />
+                    <Text style={styles.detailText}>Name of owner</Text>
                 </View>
+                <View style={styles.detailRow}>
+                    <Homepin height={25} width={25} />
+                    <Text style={styles.detailText}>Location</Text>
+                </View>
+            </View>
 
-                <View style={styles.info}>
-
-                    <View style={styles.row}>
-                        <Person height={25} width={25} />
-                        <Text style={styles.name}>John</Text>
+            <View style={styles.footer}>
+                <View style={styles.footerLeft}>
+                    <Currency height={25} width={25} />
+                    <Text style={styles.price}>5000</Text>
+                </View>
+                <View style={styles.footerRight}>
+                    <View>
+                        <Favorite height={25} width={25} />
                     </View>
-
-                    <View style={styles.row}>
-                        <Currency height={25} width={25} />
-                        <Text style={styles.text}>5000</Text>
-                    </View>
-                    <View style={styles.addressContainer}>
-                        <Homepin height={25} width={25} />
-                        <Text style={styles.address}>St 25, malibu point california lothkunta alwal 50025</Text>
-                    </View>
-
                     <TouchableOpacity onPress={() => Navigation.navigate('detail')}>
-                        <View style={styles.button}>
-                            <ArrowForward height={25} width={25} />
-                        </View>
+                        <ArrowForward height={25} width={25} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -49,68 +50,66 @@ const CardComponent = () => {
 }
 
 const styles = StyleSheet.create({
-
-
-    cardContainer: {
-        backgroundColor: 'white',
-        elevation: 1,
-        marginBottom: 10,
-        flexDirection: 'row',
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 16,
-        width: Dimensions.get('screen').width - 30,
-    },
-
-    imageContainer: {
-        width: (Dimensions.get('screen').width - 30) / 2,
-        borderRadius: 16,
-        overflow: 'hidden',
-    },
-
-    image: {
-        width: '100%',
+    container: {
         height: 200,
-        resizeMode: 'cover',
+        width: Dimensions.get('screen').width - 15,
+        borderWidth: 1,
+        flexDirection: 'column',
+        borderTopRightRadius: 16,
+        borderTopLeftRadius: 16,
     },
-
-    info: {
-        flex: 1,
-        padding: 10,
+    image: {
+        height: 200,
+        width: Dimensions.get('screen').width - 15,
+        borderWidth: 1,
+        flexDirection: 'column',
+        borderTopRightRadius: 16,
+        borderTopLeftRadius: 16,
+    },
+    detailsContainer: {
+        height: 100,
+        borderWidth: 1,
+        backgroundColor: 'white',
+        flexDirection: 'column',
+        paddingStart: 10,
+        justifyContent: "space-evenly",
+        alignItems: 'flex-start',
+    },
+    title: {
+        fontSize: 15,
+    },
+    detailRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    detailText: {
+        fontSize: 12,
+        marginStart: 5,
+    },
+    footer: {
+        height: 50,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingStart: 10,
+        paddingEnd: 10,
+        borderWidth: 1,
+        borderBottomLeftRadius: 16,
+        borderBottomRightRadius: 16,
+    },
+    footerLeft: {
+        flexDirection: 'row',
+    },
+    price: {
+        fontSize: 18,
+        marginStart: 5,
+    },
+    footerRight: {
+        flexDirection: 'row',
+        width: 100,
         justifyContent: 'space-between',
     },
-    name: {
-        color: 'black',
-        fontSize: 20,
-    },
-    row: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    text: {
-        color: 'black',
-        fontSize: 18,
-        marginLeft: 5,
-    },
-    addressContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        width: '100%',
-    },
-    address: {
-        color: 'black',
-        flexWrap: 'wrap',
-        marginLeft: 5,
-    },
-    button: {
-        borderRadius: 15,
-        height: 50,
-        width: 160,
-        backgroundColor: 'blue',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-})
+});
 
 export default CardComponent;
