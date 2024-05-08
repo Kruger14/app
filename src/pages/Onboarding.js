@@ -13,17 +13,17 @@ const Onboarding = () => {
                 <Image style={styles.img} source={require('../assets/homeon.jpg')} />
             </View>
 
-            <View style={{ flex: 1, alignItems: 'flex-start' }}>
+            <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'space-around' }}>
 
-                <Text style={styles.header}>Find your Home</Text>
-                <Text style={styles.subtext}>Rent a house at affordable price range,</Text>
-                <Text style={styles.subtext}>from your phone with Rentit</Text>
-
+                <View>
+                    <Text style={styles.header}>Find your Home</Text>
+                    <Text style={styles.subtext}>Rent a house at affordable price range,</Text>
+                    <Text style={styles.subtext}>from your phone with Rentit</Text>
+                </View>
 
                 <TouchableOpacity onPress={() => navigation.navigate('login')}>
                     <View style={styles.button}>
                         <Text style={styles.buttonText}>Get started</Text>
-
                     </View>
                 </TouchableOpacity>
             </View>

@@ -9,15 +9,23 @@ const Liked = () => {
     const Navigation = useNavigation();
     return (
         <SafeAreaProvider>
-            <View style={styles.container}>
-                <View style={styles.header}>
-                    <TouchableOpacity onPress={() => Navigation.navigate('home')}>
-                        <View style={styles.backButton}>
-                            <ArrowBack height={25} width={25} />
-                        </View>
-                    </TouchableOpacity>
+            <View style={styles.header}>
+                <TouchableOpacity onPress={() => Navigation.navigate('home')}>
+                    <View style={styles.backButton}>
+                        <ArrowBack height={25} width={25} />
+                    </View>
+                </TouchableOpacity>
+
+                <View>
+                    <Text style={{ fontSize: 21, fontWeight: 300, }}>Like</Text>
                 </View>
 
+                <View>
+                    <Text></Text>
+                </View>
+            </View>
+
+            <View style={styles.container}>
                 <View style={styles.totalCountContainer}>
                     <Text style={styles.totalCountText}>Total count: 1</Text>
                 </View>
@@ -37,8 +45,9 @@ const styles = StyleSheet.create({
     },
     header: {
         height: 50,
-        justifyContent: 'center',
-        alignItems: 'flex-start',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     backButton: {
         marginStart: 12,

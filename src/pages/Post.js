@@ -11,7 +11,7 @@ const Post = () => {
     const Navigation = useNavigation();
 
 
-    const [image, setImage] = useState(null);
+    var [image, setImage] = useState();
 
     const handleChoosePhoto = async () => {
         const options = {
@@ -20,10 +20,11 @@ const Post = () => {
 
         try {
             const response = await ImagePicker.launchImageLibrary(options);
-            console.log(response);
 
             if (!response.didCancel) {
-                setImage(response.uri);
+                //method  to convert img to json
+                setImage(response.assets[0].uri);
+                console.log(response.assets[0].uri);
             }
         } catch (error) {
             console.error('Error picking image:', error);
@@ -33,7 +34,7 @@ const Post = () => {
 
     return (
         <SafeAreaProvider>
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
+            <View style={{ flex: 1, }}>
                 <View style={styles.header}>
                     <TouchableOpacity onPress={() => Navigation.navigate('home')}>
                         <View style={styles.backButton}>
@@ -43,7 +44,7 @@ const Post = () => {
                 </View>
 
 
-                <View style={{ flex: 1, flexDirection: 'column' }}>
+                <View style={{ flex: 1, flexDirection: 'column', backgroundColor: 'white' }}>
                     <Text style={{ marginStart: 10, paddingBottom: 10 }}>Fill up the form to post property</Text>
 
                     <View>
@@ -90,7 +91,7 @@ const Post = () => {
 
 
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        {image && <Image source={image} style={{ width: 200, height: 200 }} />}
+                        <Image source={{ uri: image }} style={{ width: 50, height: 50 }} />
                         <Button title="Choose Photo" onPress={handleChoosePhoto} />
                     </View>
 

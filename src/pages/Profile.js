@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import ArrowForward from '../assets/svg/ArrowForward';
 import ArrowBack from '../assets/svg/ArroBack';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,92 +10,115 @@ const Profile = () => {
 
     return (
         <SafeAreaProvider>
-            <View style={{
-                elevation: 4, backgroundColor: 'white',
-                height: 50, justifyContent: 'center', alignItems: 'flex-start'
-            }}>
+            <View style={styles.view1}>
                 <TouchableOpacity onPress={() => Navigation.navigate('home')}>
-                    <View style={{ marginStart: 12, }}>
+                    <View style={styles.view2}>
                         <ArrowBack height={25} width={25} />
                     </View>
                 </TouchableOpacity>
             </View>
 
-            <View style={styles.container}>
-                <View style={styles.profileContainer}>
-                    <Image style={styles.profileImage} source={require('../assets/dharshini.jpg')} />
-                    <Text style={styles.profileName}>Dharshini</Text>
+            <View style={styles.view3}>
+
+                <View style={styles.view4}>
+                    <Image source={require('../assets/dharshini.jpg')} style={styles.image} />
+                    <Text style={styles.text}>Owner name</Text>
                 </View>
+
+                <View style={styles.view5}>
+
+                    <View style={styles.view6}>
+                        <TouchableOpacity>
+                            <View style={styles.touchableOpacity}>
+                                <Text style={styles.buttonText}>Home</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.view6}>
+                        <TouchableOpacity>
+                            <View style={styles.touchableOpacity}>
+                                <Text style={styles.buttonText}>Post an AD</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.view6}>
+                        <TouchableOpacity>
+                            <View style={styles.touchableOpacity}>
+                                <Text style={styles.buttonText}>Saved</Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+
+
+                </View>
+
             </View>
 
-            <View style={styles.menuContainer}>
-                <TouchableOpacity onPress={() => Navigation.navigate('post')} style={styles.menuItem}>
-                    <Text>Post a Property</Text>
-                    <ArrowForward height={25} width={25} />
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.menuItem}>
-                    <Text>Favorites</Text>
-                    <ArrowForward height={25} width={25} />
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.menuItem}>
-                    <Text>Help & Feedback</Text>
-                    <ArrowForward height={25} width={25} />
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.menuItem}>
-                    <Text>Help & Feedback</Text>
-                    <ArrowForward height={25} width={25} />
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.menuItem}>
-                    <Text>Logout</Text>
-                    <ArrowForward height={25} width={25} />
-                </TouchableOpacity>
-            </View>
         </SafeAreaProvider>
     );
 };
 
 const styles = StyleSheet.create({
-
-    container: {
-        height: 100,
-        backgroundColor: 'blue',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
+    view1: {
+        elevation: 4,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
     },
-    profileContainer: {
-        marginBottom: -50,
+    view2: {
+        marginStart: 12,
+    },
+    view3: {
+        backgroundColor: 'green',
+        flex: 1,
+        zIndex: 1,
         justifyContent: 'space-between',
+    },
+    view4: {
+        marginTop: 50,
         alignItems: 'center',
-        height: 120,
-        width: 120,
-        borderRadius: 100,
+        justifyContent: 'center',
     },
-    profileImage: {
-        borderWidth: 5,
-        borderColor: 'white',
-        height: 120,
-        width: 120,
-        borderRadius: 100,
-    },
-    profileName: {
-        fontSize: 18,
-        color: 'black',
-    },
-    menuContainer: {
-        marginTop: 80,
-    },
-    menuItem: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        height: 40,
+    view5: {
+        height: Dimensions.get('screen').height / 2,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
         backgroundColor: 'white',
-        paddingStart: 12,
-        paddingEnd: 12,
+        paddingTop: 25,
+    },
+
+    view6: {
+        marginEnd: 5,
+        marginStart: 5,
+    },
+    image: {
+        borderColor: 'white',
+        borderWidth: 5,
+        height: 120,
+        width: 120,
+        borderRadius: 100,
+        backgroundColor: 'black',
+    },
+    text: {
+        marginTop: 5,
+        color: 'black',
+        fontWeight: '500',
+        fontSize: 20,
+    },
+    touchableOpacity: {
+        borderColor: 'red',
+        borderRadius: 10,
+        borderWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        height: 50,
+        width: '100%',
+        marginTop: 10,
+    },
+    buttonText: {
+        marginStart: 10,
     },
 });
 

@@ -16,7 +16,7 @@ const Detail = () => {
 
 
     return (
-        <SafeAreaProvider style={{ backgroundColor: 'white' }}>
+        <SafeAreaProvider >
             {/* appbar */}
             <View style={styles.appbar}>
 
@@ -179,7 +179,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        backgroundColor: 'white',
         height: 50,
     },
 

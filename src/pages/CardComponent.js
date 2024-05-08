@@ -12,41 +12,43 @@ const CardComponent = () => {
     const Navigation = useNavigation();
     return (
         <SafeAreaProvider>
-            <View style={styles.container}>
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                    <Image style={styles.image} source={require('../assets/new.jpg')} />
-                    <Image style={styles.image} source={require('../assets/new.jpg')} />
-                </ScrollView>
-            </View>
-
-            <View style={styles.detailsContainer}>
-                <Text style={styles.title}>1 bhk flat for rent in venkatapuram</Text>
-                <View style={styles.detailRow}>
-                    <Person height={25} width={25} />
-                    <Text style={styles.detailText}>Name of owner</Text>
+            <View style={{ marginBottom: 10, marginTop: 10 }}>
+                <View style={styles.container}>
+                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                        <Image style={styles.image} source={require('../assets/new.jpg')} />
+                        <Image style={styles.image} source={require('../assets/new.jpg')} />
+                    </ScrollView>
                 </View>
-                <View style={styles.detailRow}>
-                    <Homepin height={25} width={25} />
-                    <Text style={styles.detailText}>Location</Text>
+
+                <View style={styles.detailsContainer}>
+                    <Text style={styles.title}>1 bhk flat for rent in venkatapuram</Text>
+                    <View style={styles.detailRow}>
+                        <Person height={25} width={25} />
+                        <Text style={styles.detailText}>Name of owner</Text>
+                    </View>
+                    <View style={styles.detailRow}>
+                        <Homepin height={25} width={25} />
+                        <Text style={styles.detailText}>Location</Text>
+                    </View>
                 </View>
-            </View>
 
-            <View style={styles.footer}>
-                <View style={styles.footerLeft}>
-                    <Currency height={25} width={25} />
-                    <Text style={styles.price}>5000</Text>
-                </View>
-                <View style={styles.footerRight}>
+                <View style={styles.footer}>
+                    <View style={styles.footerLeft}>
+                        <Currency height={25} width={25} />
+                        <Text style={styles.price}>5000</Text>
+                    </View>
+                    <View style={styles.footerRight}>
 
-                    <TouchableOpacity>
-                        <View>
-                            <Favorite height={25} width={25} />
-                        </View>
-                    </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View>
+                                <Favorite height={25} width={25} />
+                            </View>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => Navigation.navigate('detail')}>
-                        <ArrowForward height={25} width={25} />
-                    </TouchableOpacity>
+                        <TouchableOpacity onPress={() => Navigation.navigate('detail')}>
+                            <ArrowForward height={25} width={25} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         </SafeAreaProvider>
@@ -61,7 +63,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         borderTopRightRadius: 16,
         borderTopLeftRadius: 16,
-        marginTop: 10,
     },
     image: {
         height: 200,
